@@ -9,7 +9,7 @@ from django.contrib.auth.models import BaseUserManager
 class UserProfileManager(BaseUserManager):
     """Helps django work with our custom user models """
 
-    def creat_user(self,email,name, password=None):
+    def create_user(self,email,name, password=None):
         """Creates a new user profile object"""
 
         if not email:
@@ -22,14 +22,16 @@ class UserProfileManager(BaseUserManager):
         user.save(using=self._db)
 
         return user
-    def create_super_user(self,email,name, password):
+
+    def create_superuser(self,email,name, password):
         """creates and saves a new superuser with given details."""
 
         user = self.create_user(email, name, password)
 
         user.is_superuser= True
         user.is_staff = True
-
+        user.save(using=self._db)
+        return user
 
 class UserProfiles(AbstractBaseUser, PermissionsMixin):
     """Represents a "user profile" inside our system """
@@ -44,16 +46,16 @@ class UserProfiles(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
 
-def get_full_name(self):
-    """Used to get a users full name"""
+    def get_full_name(self):
+        """Used to get a users full name"""
 
-    return self.name
+        return self.name
 
-def get_short_name(self):
-    """Used to get a users full name"""
+    def get_short_name(self):
+        """Used to get a users full name"""
 
-    return self.name
+        return self.name
 
-def __str__(self):
-    """Django uses this when it needs to convert object to string"""
-    return self.email
+    def __str__(self):
+        """Django uses this when it needs to convert object to string"""
+        return self.email
