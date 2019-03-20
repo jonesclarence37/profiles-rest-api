@@ -4,3 +4,4 @@ from django.contrib import admin
 from . import models
 
 admin.site.register(models.UserProfiles)
+admin.site.register(models.ProfileFeedItem)
