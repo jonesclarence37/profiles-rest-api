@@ -25,7 +25,7 @@ SECRET_KEY = 'bygpl*hf=1uxmd(jgech3*$4o57f$+_2bx!$d(r@9b&v+_a9-!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ec2-13-59-50-61.us-east-2.compute.amazonaws.com'
+ALLOWED_HOSTS = ['ec2-13-59-50-61.us-east-2.compute.amazonaws.com', '127.0.0.1'
 ]
 
 
